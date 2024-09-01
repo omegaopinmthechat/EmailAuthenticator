@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useRef } from "react";
 
 const page = () => {
+
+  //Clearing the input box after use
   let ref = useRef();
+
+  
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-slate-400">
