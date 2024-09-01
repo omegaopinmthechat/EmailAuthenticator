@@ -7,7 +7,7 @@ const page = () => {
   let ref = useRef();
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen bg-slate-400">
         <div className="flex justify-center text-center rounded-lg h-80 w-96 bg-slate-500">
           <form className="justify-center" ref={ref}>
             {" "}
