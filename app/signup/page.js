@@ -21,30 +21,32 @@ const page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); //This step is done to stop the reload of the page when hit SignUp button
 
-    if(!name || !email || !password) {
+    if (!name || !email || !password) {
       setError("Please fill all the fields");
       return;
     }
     try {
-      const res = await fetch('api/register', {
-        method: 'POST',
+      const res = await fetch("api/register", {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify ({
-          name, email, password
-        })
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
       });
 
-      if(res.ok) {
+      if (res.ok) {
         const form = e.target;
         form.reset();
-        router.push("/login")
+        router.push("/login");
       } else {
-        console.log("User sign up failed")
+        console.log("User sign up failed");
       }
-    }catch(err) {
-      console.log("Error", err)
+    } catch (err) {
+      console.log("Error", err);
     }
   };
 
@@ -55,8 +57,7 @@ const page = () => {
           <form onSubmit={handleSubmit} className="justify-center" ref={ref}>
             {" "}
             <br></br>
-            <div className ="font-bold ">Sign Up</div> <br></br>
-          {" "}
+            <div className="font-bold ">Sign Up</div> <br></br>{" "}
             <div>
               {/*setName onChange to capture response */}
               <input
