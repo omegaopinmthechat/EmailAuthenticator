@@ -22,7 +22,7 @@ const page = () => {
       return;
     }
     try {
-      const res = await fetch('api/signup/[...nextauth]', {
+      const res = await fetch('api/register', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -32,7 +32,7 @@ const page = () => {
         })
       });
 
-      if(!res.ok) {
+      if(res.ok) {
         const form = e.target;
         form.reset();
       } else {
