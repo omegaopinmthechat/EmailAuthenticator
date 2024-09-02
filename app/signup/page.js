@@ -22,7 +22,7 @@ const page = () => {
       return;
     }
     try {
-      const res = await fetch('api/signup', {
+      const res = await fetch('api/signup/[...nextauth]', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
