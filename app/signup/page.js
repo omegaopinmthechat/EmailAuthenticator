@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; //This is done to import the navigate function after sign up
 
 const page = () => {
   //Clearing the input box after use
@@ -12,6 +13,9 @@ const page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  //routing after signup to login
+  const router = useRouter();
 
   //Form submit function
   const handleSubmit = async (e) => {
@@ -35,6 +39,7 @@ const page = () => {
       if(res.ok) {
         const form = e.target;
         form.reset();
+        router.push("/login")
       } else {
         console.log("User sign up failed")
       }
@@ -50,6 +55,8 @@ const page = () => {
           <form onSubmit={handleSubmit} className="justify-center" ref={ref}>
             {" "}
             <br></br>
+            <div className ="font-bold ">Sign Up</div> <br></br>
+          {" "}
             <div>
               {/*setName onChange to capture response */}
               <input
